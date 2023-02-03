@@ -39,6 +39,68 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    MainRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const MainPage(),
+      );
+    },
+    HomeRouter.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterPage(),
+      );
+    },
+    BookRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const BookPage(),
+      );
+    },
+    ProfileRouter.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterPage(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
+    ProductDetailRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ProductDetailRouteArgs>(
+          orElse: () => ProductDetailRouteArgs(
+              productId: pathParams.getString('productId')));
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: ProductDetailPage(
+          key: args.key,
+          productId: args.productId,
+        ),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ProfilePage(),
+      );
+    },
+    ProfileDetailsRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ProfileDetailsRouteArgs>(
+          orElse: () =>
+              ProfileDetailsRouteArgs(userId: pathParams.getString('userId')));
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: ProfileDetailsPage(
+          key: args.key,
+          userId: args.userId,
+        ),
+      );
+    },
   };
 
   @override
@@ -60,6 +122,51 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           VerifyRoute.name,
           path: '/verify',
+        ),
+        RouteConfig(
+          MainRoute.name,
+          path: '/main',
+          children: [
+            RouteConfig(
+              HomeRouter.name,
+              path: 'home',
+              parent: MainRoute.name,
+              children: [
+                RouteConfig(
+                  HomeRoute.name,
+                  path: '',
+                  parent: HomeRouter.name,
+                ),
+                RouteConfig(
+                  ProductDetailRoute.name,
+                  path: ':productId',
+                  parent: HomeRouter.name,
+                ),
+              ],
+            ),
+            RouteConfig(
+              BookRoute.name,
+              path: 'book',
+              parent: MainRoute.name,
+            ),
+            RouteConfig(
+              ProfileRouter.name,
+              path: 'profile',
+              parent: MainRoute.name,
+              children: [
+                RouteConfig(
+                  ProfileRoute.name,
+                  path: '',
+                  parent: ProfileRouter.name,
+                ),
+                RouteConfig(
+                  ProfileDetailsRoute.name,
+                  path: ':userId',
+                  parent: ProfileRouter.name,
+                ),
+              ],
+            ),
+          ],
         ),
       ];
 }
@@ -119,5 +226,150 @@ class VerifyRouteArgs {
   @override
   String toString() {
     return 'VerifyRouteArgs{key: $key, phone: $phone}';
+  }
+}
+
+/// generated route for
+/// [MainPage]
+class MainRoute extends PageRouteInfo<void> {
+  const MainRoute({List<PageRouteInfo>? children})
+      : super(
+          MainRoute.name,
+          path: '/main',
+          initialChildren: children,
+        );
+
+  static const String name = 'MainRoute';
+}
+
+/// generated route for
+/// [EmptyRouterPage]
+class HomeRouter extends PageRouteInfo<void> {
+  const HomeRouter({List<PageRouteInfo>? children})
+      : super(
+          HomeRouter.name,
+          path: 'home',
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRouter';
+}
+
+/// generated route for
+/// [BookPage]
+class BookRoute extends PageRouteInfo<void> {
+  const BookRoute()
+      : super(
+          BookRoute.name,
+          path: 'book',
+        );
+
+  static const String name = 'BookRoute';
+}
+
+/// generated route for
+/// [EmptyRouterPage]
+class ProfileRouter extends PageRouteInfo<void> {
+  const ProfileRouter({List<PageRouteInfo>? children})
+      : super(
+          ProfileRouter.name,
+          path: 'profile',
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRouter';
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute()
+      : super(
+          HomeRoute.name,
+          path: '',
+        );
+
+  static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [ProductDetailPage]
+class ProductDetailRoute extends PageRouteInfo<ProductDetailRouteArgs> {
+  ProductDetailRoute({
+    Key? key,
+    required String productId,
+  }) : super(
+          ProductDetailRoute.name,
+          path: ':productId',
+          args: ProductDetailRouteArgs(
+            key: key,
+            productId: productId,
+          ),
+          rawPathParams: {'productId': productId},
+        );
+
+  static const String name = 'ProductDetailRoute';
+}
+
+class ProductDetailRouteArgs {
+  const ProductDetailRouteArgs({
+    this.key,
+    required this.productId,
+  });
+
+  final Key? key;
+
+  final String productId;
+
+  @override
+  String toString() {
+    return 'ProductDetailRouteArgs{key: $key, productId: $productId}';
+  }
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute()
+      : super(
+          ProfileRoute.name,
+          path: '',
+        );
+
+  static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [ProfileDetailsPage]
+class ProfileDetailsRoute extends PageRouteInfo<ProfileDetailsRouteArgs> {
+  ProfileDetailsRoute({
+    Key? key,
+    required String userId,
+  }) : super(
+          ProfileDetailsRoute.name,
+          path: ':userId',
+          args: ProfileDetailsRouteArgs(
+            key: key,
+            userId: userId,
+          ),
+          rawPathParams: {'userId': userId},
+        );
+
+  static const String name = 'ProfileDetailsRoute';
+}
+
+class ProfileDetailsRouteArgs {
+  const ProfileDetailsRouteArgs({
+    this.key,
+    required this.userId,
+  });
+
+  final Key? key;
+
+  final String userId;
+
+  @override
+  String toString() {
+    return 'ProfileDetailsRouteArgs{key: $key, userId: $userId}';
   }
 }

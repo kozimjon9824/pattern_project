@@ -5,8 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../constants/constants.dart';
-import '../routes/app_routes.dart';
-import '../utils/utils.dart';
 import 'retry.dart';
 
 class NetworkClient {
@@ -130,7 +128,7 @@ class NetworkClient {
     // await inject<AuthCubit>().logout();
 
     /// Navigate to Sign in Screen
-    Navigator.pushNamedAndRemoveUntil(
-        navigatorKey.currentContext!, AppRoutes.splash, (route) => false);
+    // Navigator.pushNamedAndRemoveUntil(
+    //     navigatorKey.currentContext!, AppRoutes.splash, (route) => false);
   }
 }

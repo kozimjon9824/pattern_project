@@ -8,11 +8,11 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: InkWell(
-            onTap: () {
+        child: TextButton(
+            onPressed: () {
               context.router.pushNamed('/login');
             },
-            child: const Text('login')),
+            child: const Text('Splash to Go further -> login')),
       ),
     );
   }
