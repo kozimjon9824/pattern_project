@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp.router(
-      title: 'Flutter Pattern for kozimjon',
+      title: 'Flutter Pattern for new projects',
       debugShowCheckedModeBanner: false,
       theme: appThemeData,
       routerDelegate: _appRouter.delegate(),
