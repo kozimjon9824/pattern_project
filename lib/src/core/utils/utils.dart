@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-enum StateStatus { loading, success, error, unknown }
-
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 /// jwt token decoder

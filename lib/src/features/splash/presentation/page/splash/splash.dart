@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pattern_project/src/core/routes/app_router.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SplashPage extends StatelessWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +11,9 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: TextButton(
             onPressed: () {
-              context.router.push(VerifyRoute(phone: '90 001 16 10'));
+              context.router.push(const LoginRoute());
             },
-            child: const Text('LOGIN -> verify')),
+            child: const Text('Splash')),
       ),
     );
   }

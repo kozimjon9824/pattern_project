@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n.dart';
+
 abstract class LocalizedMessage {
   String getLocalizedMessage(BuildContext context);
 }
@@ -23,4 +25,12 @@ class ServerFailure extends Failure {
   @override
   String getLocalizedMessage(BuildContext context) =>
       'Server Error $statusCode';
+}
+
+class WrongCodeFailure extends Failure {
+  const WrongCodeFailure() : super();
+
+  @override
+  String getLocalizedMessage(BuildContext context) =>
+      AppLocalizations.of(context).WrongCode;
 }

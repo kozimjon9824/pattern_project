@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../constants/constants.dart';
 import 'retry.dart';
 
-class NetworkClient {
+class NetworkClientExample {
   String _token = '';
   String _lang = '';
   late final Dio api;

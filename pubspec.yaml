@@ -27,7 +27,7 @@ dependencies:
   # Flutter Widgets that make it easy to implement the BLoC (Business Logic Component) design pattern. Built to be used with the bloc state management package.
   dartz: ^0.10.1
   # for network request , api call
-  retrofit: ^3.0.1
+#  retrofit: ^3.0.1
   # for di getIt
   get_it: ^7.2.0
   # for compare objects
@@ -44,6 +44,7 @@ dependencies:
   another_flushbar: ^1.10.29
   # to detect internet connection
   connectivity_plus: ^2.3.6+1
+  internet_connection_checker: ^1.0.0+1
   # animation dots for page index
   smooth_page_indicator: ^1.0.0+2
   # language and data formatter
@@ -61,7 +62,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   # to parse image to png , jpg to send photo to api
   http_parser: ^4.0.2
-  # to navigation
+  # to auto navigation
   auto_route: ^5.0.4
 
 
